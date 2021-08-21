@@ -1,0 +1,33 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+
+  @include respond(tab-land) {
+    font-size: 56.25%; //1rem = 16px, 9/16 = 56.25
+  }
+  @include respond(tab-port) {
+    font-size: 50%; // 1rem = 16px , 8/16 = 50
+  }
+  @include respond(phone) {
+    font-size: 35%;
+  }
+  @include respond(big-desktop) {
+    font-size: 100%; //1rem = 16px, 9/16 = 56.25
+  }
+  @include respond(super-desktop) {
+    font-size: 130%; //1rem = 16px, 9/16 = 56.25
+  }
+  scroll-margin-bottom: 15rem;
+  scroll-behavior: smooth;
+}
+body {
+  box-sizing: border-box;
+  font-family: "Lato", "Ubuntu", sans-serif;
+}

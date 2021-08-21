@@ -1,0 +1,291 @@
+/*========NavBar=======*/
+.nav {
+  width: 100%;
+  background-color: $dark;
+  height: 5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  &__list {
+    margin-right: 5rem;
+    display: flex;
+    height: 100%;
+    &__item {
+      display: flex;
+      list-style-type: none;
+      align-items: center;
+      cursor: pointer;
+      height: 100%;
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+      &:hover {
+        a {
+          color: white;
+          transition: all 0.2s;
+        }
+        svg {
+          fill: white;
+          transition: all 0.2s;
+        }
+      }
+
+      &__icon {
+        width: 2rem;
+        height: 2rem;
+        fill: $gray;
+        margin-right: 0.5rem;
+      }
+
+      & a {
+        text-decoration: none;
+        color: $gray;
+        font-family: "Lato", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
+    }
+  }
+  @include respond(phone) {
+    justify-content: center;
+    &__list {
+      margin-right: 0;
+      justify-content: space-evenly;
+      width: 100%;
+    }
+  }
+}
+/*========NavBar=======*/
+
+/*========Header=======*/
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: $dark;
+  position: relative;
+  z-index: 1;
+  height: 70rem;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 25rem;
+    left: 0;
+    bottom: 0;
+    background: url(../images/header-bg.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+
+  &__left {
+    margin-bottom: 18rem;
+    animation: moveInLeft 0.5s ease-in;
+    display: flex;
+    flex-direction: column;
+    &__title {
+      color: $white;
+      &--name {
+        position: relative;
+        color: $dark;
+        display: inline-block;
+        z-index: 1;
+        padding: 0.5rem 1rem;
+        margin: 0.5rem 0;
+
+        &::after {
+          position: absolute;
+          content: "";
+          top: 0;
+          left: 0;
+          width: 100%;
+          background-color: white;
+          height: 100%;
+          border-radius: 0.7rem;
+          z-index: -1;
+          animation: nameAnimation 1.25s cubic-bezier(0.32, 0.58, 0.82, 0.36);
+          animation-fill-mode: backwards;
+          animation-delay: 2s;
+          transform-origin: left;
+        }
+      }
+    }
+    &__desc {
+      font-family: "Ubuntu", sans-serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: $white;
+      margin: 1.5rem 0;
+      width: 30rem;
+    }
+    &__resume {
+      cursor: pointer;
+      width: fit-content;
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background-color: transparent;
+      border-radius: 0.4rem;
+      border: 1px solid $white;
+      color: $white;
+      transition: all 0.2s;
+      font-size: 1.4rem;
+
+      &:hover {
+        color: $dark;
+        background-color: $white;
+      }
+    }
+  }
+  &__right {
+    animation: moveInRight 0.5s ease-in;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+    width: 40rem;
+    height: 40rem;
+    margin-bottom: 18rem;
+    & img {
+      width: 100%;
+    }
+  }
+
+  @include respond(phone) {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    height: 75rem;
+
+    &__left {
+      margin-bottom: 0;
+      animation: moveInLeft 0.5s ease-in;
+      margin-top: -15rem;
+      & > * {
+        text-align: center;
+        align-self: center;
+        justify-self: center;
+      }
+    }
+    &__right {
+      margin-bottom: 0;
+      width: 25rem;
+    }
+  }
+}
+/*========Header=======*/
+section {
+  transition: transform 1s, opacity 1s;
+}
+/*========Projects=======*/
+.projects {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 5rem;
+  flex-direction: column;
+  & h4 {
+    text-decoration: underline;
+    text-decoration-color: $dark;
+    color: $dark;
+  }
+
+  &__cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35rem, min-content));
+    grid-gap: 4rem;
+    justify-content: center;
+    align-content: center;
+  }
+}
+
+/*========Projects=======*/
+
+/*========About=======*/
+
+.about {
+  background-color: $dark;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 0;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    background: url(../images/header-bg.svg);
+    width: 100%;
+    height: 25rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+    transform: rotate(180deg);
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    background: url(../images/header-bg.svg);
+    width: 100%;
+    height: 25rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+
+  &__container {
+    margin: 18rem 0;
+    &__info {
+      margin: 6rem 0;
+
+      &__pic {
+        margin-top: 1rem;
+        & > * {
+          width: 6rem;
+          height: 6rem;
+          &:not(:last-child) {
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*========About=======*/
+
+/*========Contact=======*/
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 4rem 0;
+}
+/*========Contact=======*/
+
+/*========Footer=======*/
+.footer {
+  height: 5rem;
+  background-color: $dark;
+  width: 100%;
+  color: $white;
+  display: flex;
+  align-items: center;
+  & p {
+    margin-left: 7rem;
+    font-size: 1.5rem;
+  }
+}
+
+/*========Footer=======*/

@@ -1,0 +1,146 @@
+.desc {
+  text-align: center;
+  margin: 3rem 0;
+  font-size: 1.5rem;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+}
+
+.card {
+  height: 25rem;
+  border-radius: 0.7rem;
+  box-shadow: $card-shadow;
+  display: flex;
+  overflow: hidden;
+  &:hover > &-overlay {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  & img {
+    width: 100%;
+    object-fit: cover;
+  }
+  position: relative;
+
+  &-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: $white;
+    padding: 1.5rem 2.5rem;
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 0;
+    transition: all 0.2s;
+
+    & p {
+      font-size: 1.3rem;
+      font-weight: 300;
+    }
+    &__responsive {
+      & .green {
+        color: $green;
+        font-weight: 700;
+        font-size: 1.3rem;
+      }
+      & .red {
+        color: $red;
+        font-weight: 700;
+        font-size: 1.3rem;
+      }
+    }
+
+    &__desc {
+      margin-top: 3rem;
+      & a {
+        color: white;
+        text-decoration-color: white;
+      }
+    }
+    &__clickable {
+      justify-self: center;
+      align-self: center;
+      margin-top: 2rem;
+      & a {
+        cursor: pointer;
+      }
+      & a:not(:last-child) {
+        margin-right: 2rem;
+      }
+      & img {
+        width: 2.5rem;
+      }
+    }
+    &__tech {
+      margin-top: 1.4rem;
+      display: flex;
+      align-items: center;
+      & img {
+        width: 2.5rem;
+        &:not(:last-child) {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 50rem;
+  & > *:not(:last-child) {
+    width: 100%;
+    margin-bottom: 1rem;
+    & input,
+    & textarea {
+      width: 100%;
+      outline: none;
+      border-radius: 0.7rem;
+      background-color: $dark-blue;
+      color: $white;
+      box-shadow: none;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1.3rem;
+    }
+    & textarea {
+      height: 8rem;
+    }
+    & label {
+      font-size: 1.4rem;
+      font-weight: 500;
+      font-family: "Lato", sans-serif;
+      margin-bottom: 0.5rem;
+    }
+  }
+  & label {
+    display: block;
+  }
+  & textarea {
+    resize: none;
+  }
+  &__btn {
+    align-self: flex-end;
+    background-color: transparent;
+    border: 1px solid $dark-blue;
+    color: $dark-blue;
+    border-radius: 0.5rem;
+    padding: 0.6rem 2rem;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    &:hover {
+      background-color: $dark-blue;
+      color: $white;
+      cursor: pointer;
+    }
+  }
+}
